@@ -1,18 +1,16 @@
 import React, { Fragment } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Login from './components/auth/Login'
+import Login from '../src/components/auth/Login'
 import './App.css';
 import MainPage from './components/MainPage';
+import RouterURL from './components/routerURL/RouterURL'
 
 const App = () =>
+  
+    
   <Router>
-    <Fragment>
-      <Route exact path='/' component={MainPage} />
-      <section className='container'>
-        <Switch>
-          <Route exact path='/main' />
-        </Switch>
-      </section>
-    </Fragment>
+    <RouterURL/>
+
   </Router>
+ 
 export default App;
