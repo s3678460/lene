@@ -53,6 +53,7 @@ span {
 #sidebar {
     min-width: 250px;
     max-width: 250px;
+    height: 100%;
     background: #F0F2F2;
     color: #B4B4B4;
     transition: all 0.3s;
@@ -61,6 +62,7 @@ span {
 #sidebar.active {
     min-width: 80px;
     max-width: 80px;
+    height: 100%;
     text-align: center;
 }
 
@@ -275,6 +277,94 @@ cursor: pointer;
 [class*="col-"] {
     margin-bottom: 15px;
   }
+
+  /* Detail Page */
+.wrap-if{
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    background-color: white;
+    border-radius: 5px;
+    margin-top: 3rem;
+}
+.social-if{
+    max-width: 80px;
+    background-color:white;
+    border-top-left-radius: 5px;
+    color: #BBBBBB;
+    font-size: 1.7rem;
+}
+.image-if{
+    max-width: 216px;
+    background-color: white;
+    
+}
+.image-if img{
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    margin-top: -24px;
+}
+.detail-if{
+    width: calc(100% - 296px);
+    background-color: white;
+}
+.di1{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+}
+.di2{
+    width: 50%;
+}
+.di3{
+    width: 50%;
+}
+.di4{
+    width: 100%;
+    display: flex;
+}
+.di5{
+    max-width: 33%;
+    padding: 8px 24px 0px 0px;
+}
+.di6{
+    max-width: 33%;
+    padding: 8px 24px 0px 0px;
+}
+.di7{
+    /* width: calc(100% - 66%); */
+    max-width: none;
+    padding: 8px 24px 0px 0px;
+}
+/* .jss2268::after{
+    width: 100%;
+    bottom: 0;
+    height: 1px;
+    content: "";
+    opacity: 0.5;
+    position: absolute;
+    background-color: black;
+} */
+.footer-if{
+    background-color: white;
+    height: 64px;
+    width: 100%;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+}
+.footer-if-left{
+    width: 50%;
+}
+.footer-if-right{
+    width: 50%;
+}
+.fir{
+    background-color:lightcoral;
+}
 /* ---------------------------------------------------
     MEDIAQUERIES
 ----------------------------------------------------- */
