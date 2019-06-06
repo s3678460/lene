@@ -27,33 +27,16 @@ export default class DetailPage extends Component {
                         </div>
                     </div>
                     <div className="detail-if pt-2 pl-4">
-                        {/* <div className="mr-4">
-                            <div className="float-left text-center">
-                                <h1>Dũng Bùi Tiến</h1>
-                            </div>
-                            <div className="float-right pt-2">
-                                <button className="btn btn-info pull-right">
-                                    <i class="fas fa-layer-group"></i>  Add to Collection</button>
-                            </div>
-                        </div> */}
                         <div className="mr-4 di1">
                             <div className="di2">
                                 <h1>Dũng Bùi Tiến</h1>
                             </div>
                             <div className="di3">
                                 <button className="btn btn-info float-right">
-                                    <i class="fas fa-layer-group"></i>  Add to Collection</button>
+                                    <i className="fas fa-layer-group"></i>  Add to Collection</button>
                             </div>
                             <div className="di4">
                                 <div className="di5">
-                                    {/* <ul className="list-unstyled CTAs">
-                                        <li>
-                                            inf.size: <h5 style={{ display: 'inline' }}><span className="badge badge-pill badge-danger">Mega</span></h5>
-                                        </li>
-                                        <li >
-                                            inf.type: <p style={{ display: 'inline' }}>Professional</p>
-                                        </li>
-                                    </ul> */}
                                     <div className="py-1">Inf.size: <h5 style={{ display: 'inline' }}>
                                         <span className="badge badge-pill badge-danger">Mega</span></h5>
                                     </div>
@@ -88,6 +71,82 @@ export default class DetailPage extends Component {
                             </div>
                         </div>
                     </div>
+                </div>
+                {/*platform label*/}
+                <div className="pll"><a href=""><span><h3>Facebook Profile</h3></span></a></div>
+                {/* platform tab */}
+                <div className="plt">
+                    <button className="btn btn-outline-info enable">AUDIENCE</button>
+                    <button className="btn btn-outline-info">ANALYTICS</button>
+                    <button className="btn btn-outline-info">RECENT ACTIVITIES</button>
+                </div>
+                {/* platform charts */}
+                <div className="wrap-plc">
+                    <div className="plc-tf">
+                        <div className="plc-form wrap-plc-ov">
+                            <div className="plc-ov1">
+                                <div>
+                                    TOTAL FOLLOWER
+                                        <span className="badge badge-pill badge-danger ml-2" style={{fontSize: '1rem'}}>Mega</span>
+                                </div>
+                            </div>
+                            <div className="plc-ov2">
+                                <div>
+                                    <span className="fas fa-info-circle float-right pr-4"></span>
+                                </div>
+
+                            </div>
+                            <div className="plc-ov3">
+                                <div>3,201,934</div>
+                            </div>
+                            <div className="plc-ov4">
+                                <span className="fas fa-user-friends float-right pr-4"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="plc-fg">
+                        <div className="plc-form wrap-plc-ov">
+                            <div className="plc-ov1">
+                                <div>FOLLOWER GROWTH (LAST 4W)</div>
+                            </div>
+                            <div className="plc-ov2">
+                                <div>
+                                    <span className="fas fa-info-circle float-right pr-4"></span>
+                                </div>
+                            </div>
+                            <div className="plc-ov3">
+                                <div>-11,610<span style={{ fontSize: '20px', display: 'inline', lineHeight: '39px'}}>(-0.36%)</span></div>
+                            </div>
+                            <div className="plc-ov4">
+                                <span className="fas fa-chart-line float-right pr-4"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="plc-af">
+                        <div className="plc-form wrap-plc-ov">
+                            <div className="plc-ov1">
+                                <div>% ACTIVE FOLLOWER</div>
+                            </div>
+                            <div className="plc-ov2">
+                                <div>
+                                    <span className="fas fa-info-circle float-right pr-4"></span>
+                                </div>
+                            </div>
+                            <div className="plc-ov3">
+                                <div>85 %</div>
+                            </div>
+                            <div className="plc-ov4">
+                                <span className="fas fa-bolt float-right pr-4"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="plc-fgc"><div className="plc-form">Follower Growth Chart</div></div>
+                    <div className="plc-ablc"><div className="plc-form">Allocate by Locations</div></div>
+                    <div className="plc-abac"><div className="plc-form">Allocate by Ages</div></div>
+                    <div className="plc-abgc"><div className="plc-form">Allocate by Genders</div></div>
+                    <div className="plc-abec"><div className="plc-form">Allocate by Education</div></div>
+                    <div className="plc-abjc"><div className="plc-form">Allocate by Job Level</div></div>
                 </div>
             </div>
         )

@@ -365,6 +365,150 @@ cursor: pointer;
 .fir{
     background-color:lightcoral;
 }
+
+/* platform label */
+.pll{
+    margin-top: 2rem;
+    color: #17a2b8;
+    font-weight: bold;
+    border-bottom: 0.5px solid rgba(187,187,187,1);;
+}
+.pll span{
+    border-bottom: 2px solid #17a2b8;
+}
+/* platform tabs */
+.plt{
+    margin-top: 1rem;
+}
+.plt button{
+    margin-right: 1rem;
+    border: none !important;
+    color: #999999;
+    padding: 0.8rem !important;
+}
+.plt button:hover{
+    background-color: #D2D4DB;
+    color: #999999;
+}
+.plt button.enable{
+    background-color: #17a2b8;
+    color: white;
+}
+/* platform charts */
+.wrap-plc{
+    display: flex;
+    flex-flow: row wrap;
+    margin-top: 1rem;
+}
+.plc-form{
+    box-shadow: 0 40px 50px -40px rgba(0,0,0,.2);
+    border-radius: 3px;
+    background-color: #ffffff;
+}
+/* Total Follower */
+.plc-tf{
+    width: 35%;
+    padding: 12px 12px 12px 0px;
+}
+.wrap-plc-ov{
+    display: flex;
+    flex-flow: row wrap;
+    height: 124px;
+    align-items: center
+}
+.plc-ov1{
+    width: 70%;
+}
+.plc-ov1 div{
+    margin: 20px 0px 0px 25px;
+    font-size: 14px;
+    color: rgba(153,153,153,1);
+}
+.plc-ov2{
+    width: 30%;
+}
+.plc-ov2 div{
+    margin: 20px 0px 0px 25px;
+}
+.plc-ov3{
+    width: 70%;
+}
+.plc-tf .plc-ov3 div{
+    color: #DC3544;
+    font-size: 48px;
+    font-family: Montserrat, sans-serif;
+    line-height: 1.5em;
+    margin-left: 25px;
+    margin-bottom: 5px;
+}
+.plc-ov4{
+    width: 30%;
+}
+.plc-tf .plc-ov4 span{
+    color: #F38385;
+    font-size: 48px;
+}
+
+/* Follower Growth */
+.plc-fg{
+    width: 39%;
+    padding: 12px;
+}
+.plc-fg .plc-ov3 div{
+    color: #389FDB;
+    font-size: 48px;
+    font-family: Montserrat, sans-serif;
+    line-height: 1.5em;
+    margin-left: 25px;
+    margin-bottom: 5px;
+}
+.plc-fg .plc-ov4 span{
+    color: #72C3E8;
+    font-size: 48px;
+}
+/* Active Follower */
+.plc-af{
+    width: 26%;
+    padding: 12px 0px 12px 12px;
+}
+.plc-af .plc-ov3 div{
+    color: #9B27AF;
+    font-size: 48px;
+    font-family: Montserrat, sans-serif;
+    line-height: 1.5em;
+    margin-left: 25px;
+    margin-bottom: 5px;
+}
+.plc-af .plc-ov4 span{
+    color: #BE74CE;
+    font-size: 48px;
+}
+
+.plc-fgc{
+    width: 100%;
+    padding: 12px 0px 12px 0px;
+}
+
+.plc-ablc{
+    width: 50%;
+    padding: 12px 12px 12px 0px;
+}
+.plc-abac{
+    width: 50%;
+    padding: 12px 0px 12px 12px;
+}
+.plc-abgc{
+    width: 28%;
+    padding: 12px 12px 12px 0px;
+}
+.plc-abec{
+    width: 36%;
+    padding: 12px 12px 12px 12px;
+}
+.plc-abjc{
+    width: 36%;
+    padding: 12px 0px 12px 12px;
+}
 /* ---------------------------------------------------
     MEDIAQUERIES
 ----------------------------------------------------- */
