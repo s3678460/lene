@@ -1,6 +1,69 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Line, HorizontalBar } from 'react-chartjs-2';
 
 export default class DetailPage extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            dataFG: {
+                // labels: ['08/05', '09/05', '10/05', '11/05', '12/05', '13/05', '04/06', '06/06', '07/06'],
+                datasets: [
+                    {
+                        label: 'Follower Growth',
+                        data: [
+                            3213454,
+                            3213152,
+                            3212461,
+                            3212142,
+                            3212065,
+                            3211282,
+                            3201974,
+                            3201765,
+                            3201779
+                        ],
+                        backgroundColor: "rgba(56, 159, 219, 0.2)",
+                        borderColor: "rgba(56, 159, 219, 1)",
+                        borderWidth: 2,
+                        pointBackgroundColor: 'rgba(56, 159, 219, 1)',
+                        hoverBackgroundColor: "rgba(56, 159, 219, 0.4)",
+                        hoverBorderColor: "rgba(56, 159, 219, 1)",
+                    }
+                ]
+            },
+            dataABL: {
+                datasets: [
+                    {
+                        label: 'Follower Growth',
+                        data: [
+                            19.13, 18.25, 4.73, 3.09, 2.50
+                        ],
+                        backgroundColor: "rgb(56, 159, 219)",
+                        borderColor: "rgba(56, 159, 219, 1)",
+                        borderWidth: 2,
+                        pointBackgroundColor: 'rgba(56, 159, 219, 1)',
+                        hoverBackgroundColor: "rgba(56, 159, 219, 0.4)",
+                        hoverBorderColor: "rgba(56, 159, 219, 1)",
+                    }
+                ]
+            },
+            dataABA: {
+                datasets: [
+                    {
+                        label: 'Follower Growth',
+                        data: [
+                            0.04, 77.68, 21.83, 0.36, 0.04
+                        ],
+                        backgroundColor: "rgb(155, 39, 175)",
+                        borderColor: "rgb(155, 39, 175)",
+                        borderWidth: 2,
+                        pointBackgroundColor: 'rgb(155, 39, 175)',
+                        hoverBackgroundColor: "rgb(155, 39, 175)",
+                        hoverBorderColor: "rgb(155, 39, 175)",
+                    }
+                ]
+            },
+        }
+    }
     render() {
         return (
             <div>
@@ -87,7 +150,7 @@ export default class DetailPage extends Component {
                             <div className="plc-ov1">
                                 <div>
                                     TOTAL FOLLOWER
-                                        <span className="badge badge-pill badge-danger ml-2" style={{fontSize: '1rem'}}>Mega</span>
+                                        <span className="badge badge-pill badge-danger ml-2" style={{ fontSize: '1rem' }}>Mega</span>
                                 </div>
                             </div>
                             <div className="plc-ov2">
@@ -116,7 +179,7 @@ export default class DetailPage extends Component {
                                 </div>
                             </div>
                             <div className="plc-ov3">
-                                <div>-11,610<span style={{ fontSize: '20px', display: 'inline', lineHeight: '39px'}}>(-0.36%)</span></div>
+                                <div>-11,610<span style={{ fontSize: '20px', display: 'inline', lineHeight: '39px' }}>(-0.36%)</span></div>
                             </div>
                             <div className="plc-ov4">
                                 <span className="fas fa-chart-line float-right pr-4"></span>
@@ -141,9 +204,161 @@ export default class DetailPage extends Component {
                             </div>
                         </div>
                     </div>
-                    <div className="plc-fgc"><div className="plc-form">Follower Growth Chart</div></div>
-                    <div className="plc-ablc"><div className="plc-form">Allocate by Locations</div></div>
-                    <div className="plc-abac"><div className="plc-form">Allocate by Ages</div></div>
+                    <div className="plc-fgc">
+                        <div className="plc-form">
+                            <div>
+                                <div className="mb-3">
+                                    <span style={{ fontSize: '16px' }}>Follower Growth</span>
+                                    <span style={{
+                                        fontSize: '13px',
+                                        marginLeft: '5px',
+                                        color: '#999999'
+                                    }}
+                                    >(Last 4 weeks)</span>
+                                </div>
+                                <div style={{ position: 'relative', width: '99%' }}>
+                                    <Line
+                                        data={this.state.dataFG}
+                                        height={80}
+                                        options={{
+                                            legend: {
+                                                display: false
+                                            },
+                                            tooltips: {
+                                                callbacks: {
+                                                    label: function (tooltipItem) {
+                                                        return tooltipItem.yLabel;
+                                                    }
+                                                }
+                                            },
+                                            scales: {
+                                                
+                                                yAxes: [{
+                                                    ticks: {
+                                                        min: 3200000,
+                                                        max: 3215000,
+                                                        stepSize: 3000
+                                                    },
+                                                    // type: 'category',
+                                                    // lables: [
+                                                    //     '3215k',
+                                                    //     '3212k',
+                                                    //     '3210k',
+                                                    //     '3207k',
+                                                    //     '3205k',
+                                                    //     '3202k',
+                                                    //     '3200k'
+                                                    // ]
+                                                }],
+                                                xAxes: [{
+                                                    type: 'category',
+                                                    labels: ['08/05', '09/05', '10/05', '11/05', '12/05', '13/05', '04/06', '06/06', '07/06'],
+                                                }],
+                                            }
+                                        }}
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="plc-ablc">
+                        <div className="plc-form">
+                            <div>
+                                <div>
+                                    <span style={{ fontSize: '16px' }}>Allocate by Locations</span>
+                                </div>
+                                <div style={{ position: 'relative', width: '99%' }}>
+                                    <HorizontalBar
+                                        data={this.state.dataABL}
+                                        // height={80}
+                                        options={{
+                                            legend: {
+                                                display: false
+                                            },
+                                            tooltips: {
+                                                callbacks: {
+                                                    label: function (tooltipItem) {
+                                                        var label = tooltipItem.xLabel
+                                                        return label + '%';
+                                                    }
+                                                }
+                                            },
+                                            scales: {
+                                                xAxes: [{
+                                                    ticks: {
+                                                        min: 1,
+                                                        max: 100,
+                                                        stepSize: 10
+                                                    },
+                                                }],
+                                                yAxes: [
+                                                    {
+                                                        type: 'category',
+                                                        labels: [
+                                                            'Hà Nội City',
+                                                            'Hồ Chí Minh City',
+                                                            'Thanh Hóa Province',
+                                                            'Đồng Nai Province',
+                                                            'Hải Phòng City'
+                                                        ],
+                                                    }
+                                                ]
+                                            }
+                                        }}
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="plc-abac">
+                        <div className="plc-form">
+                            <div>
+                                <div>
+                                    <span style={{ fontSize: '16px' }}>Allocate by Ages</span>
+                                </div>
+                                <div style={{ position: 'relative', width: '99%' }}>
+                                    <HorizontalBar
+                                        data={this.state.dataABA}
+                                        // height={80}
+                                        options={{
+                                            legend: {
+                                                display: false
+                                            },
+                                            tooltips: {
+                                                callbacks: {
+                                                    label: function (tooltipItem) {
+                                                        var label = tooltipItem.xLabel
+                                                        return label + '%';
+                                                    }
+                                                }
+                                            },
+                                            scales: {
+                                                xAxes: [{
+                                                    ticks: {
+                                                        min: 0,
+                                                        max: 100,
+                                                        stepSize: 10
+                                                    },
+                                                }],
+                                                yAxes: [
+                                                    {
+                                                        type: 'category',
+                                                        labels: [
+                                                            '< 18',
+                                                            '18-24',
+                                                            '25-34',
+                                                            '35-44',
+                                                            '75+'
+                                                        ],
+                                                    }
+                                                ]
+                                            }
+                                        }}
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div className="plc-abgc"><div className="plc-form">Allocate by Genders</div></div>
                     <div className="plc-abec"><div className="plc-form">Allocate by Education</div></div>
                     <div className="plc-abjc"><div className="plc-form">Allocate by Job Level</div></div>
