@@ -1,68 +1,223 @@
 import React, { Component } from 'react';
-import { Line, HorizontalBar } from 'react-chartjs-2';
+import { Line, HorizontalBar, Chart, Pie } from 'react-chartjs-2';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 export default class DetailPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            dataFG: {
-                // labels: ['08/05', '09/05', '10/05', '11/05', '12/05', '13/05', '04/06', '06/06', '07/06'],
-                datasets: [
-                    {
-                        label: 'Follower Growth',
-                        data: [
-                            3213454,
-                            3213152,
-                            3212461,
-                            3212142,
-                            3212065,
-                            3211282,
-                            3201974,
-                            3201765,
-                            3201779
-                        ],
-                        backgroundColor: "rgba(56, 159, 219, 0.2)",
-                        borderColor: "rgba(56, 159, 219, 1)",
-                        borderWidth: 2,
-                        pointBackgroundColor: 'rgba(56, 159, 219, 1)',
-                        hoverBackgroundColor: "rgba(56, 159, 219, 0.4)",
-                        hoverBorderColor: "rgba(56, 159, 219, 1)",
+            chartFG: {
+                dataFG: {
+                    datasets: [
+                        {
+                            label: 'Follower Growth',
+                            data: [
+                                3213454,
+                                3213152,
+                                3212461,
+                                3212142,
+                                3212065,
+                                3211282,
+                                3201974,
+                                3201765,
+                                3201779
+                            ],
+                            backgroundColor: "rgba(56, 159, 219, 0.2)",
+                            borderColor: "rgba(56, 159, 219, 1)",
+                            borderWidth: 2,
+                            pointBackgroundColor: 'rgba(56, 159, 219, 1)',
+                            hoverBackgroundColor: "rgba(56, 159, 219, 0.4)",
+                            hoverBorderColor: "rgba(56, 159, 219, 1)",
+                        }
+                    ]
+                },
+                optionFG: {
+                    legend: {
+                        display: false
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function (tooltipItem) {
+                                return tooltipItem.yLabel;
+                            },
+                            title: () => {
+                                return ''
+                            }
+                        }
+                    },
+                    scales: {
+
+                        yAxes: [{
+                            ticks: {
+                                min: 3200000,
+                                max: 3215000,
+                                stepSize: 3000
+                            }
+                        }],
+                        xAxes: [{
+                            type: 'category',
+                            labels: ['08/05', '09/05', '10/05', '11/05', '12/05', '13/05', '04/06', '06/06', '07/06'],
+                        }],
                     }
-                ]
+                }
             },
-            dataABL: {
-                datasets: [
-                    {
-                        label: 'Follower Growth',
-                        data: [
-                            19.13, 18.25, 4.73, 3.09, 2.50
-                        ],
-                        backgroundColor: "rgb(56, 159, 219)",
-                        borderColor: "rgba(56, 159, 219, 1)",
-                        borderWidth: 2,
-                        pointBackgroundColor: 'rgba(56, 159, 219, 1)',
-                        hoverBackgroundColor: "rgba(56, 159, 219, 0.4)",
-                        hoverBorderColor: "rgba(56, 159, 219, 1)",
+            chartABL: {
+                dataABL: {
+                    datasets: [
+                        {
+                            label: 'Follower Growth',
+                            data: [
+                                19.13, 18.25, 4.73, 3.09, 2.50
+                            ],
+                            backgroundColor: "rgb(56, 159, 219)",
+                            borderColor: "rgb(56, 159, 219)",
+                            borderWidth: 2,
+                            pointBackgroundColor: 'rgb(56, 159, 219)',
+                            hoverBackgroundColor: "rgb(56, 159, 219)",
+                            hoverBorderColor: "rgb(56, 159, 219)",
+                        }
+                    ]
+                },
+                optionABL: {
+                    plugins: {
+                        datalabels: {
+                            anchor: 'end',
+                            align: 'end',
+                            formatter: (value, context) => {
+                                return value + '%'
+                            }
+                        }
+                    },
+                    legend: {
+                        display: false
+                    },
+                    tooltips: {
+                        enabled: false
+                    },
+                    scales: {
+                        xAxes: [{
+                            ticks: {
+                                min: 1,
+                                max: 100,
+                                stepSize: 10
+                            },
+                        }],
+                        yAxes: [
+                            {
+                                type: 'category',
+                                labels: [
+                                    'Hà Nội City',
+                                    'Hồ Chí Minh City',
+                                    'Thanh Hóa Province',
+                                    'Đồng Nai Province',
+                                    'Hải Phòng City'
+                                ],
+                            }
+                        ]
                     }
-                ]
+                }
             },
-            dataABA: {
-                datasets: [
-                    {
-                        label: 'Follower Growth',
-                        data: [
-                            0.04, 77.68, 21.83, 0.36, 0.04
-                        ],
-                        backgroundColor: "rgb(155, 39, 175)",
-                        borderColor: "rgb(155, 39, 175)",
-                        borderWidth: 2,
-                        pointBackgroundColor: 'rgb(155, 39, 175)',
-                        hoverBackgroundColor: "rgb(155, 39, 175)",
-                        hoverBorderColor: "rgb(155, 39, 175)",
+            chartABA: {
+                dataABA: {
+                    datasets: [
+                        {
+                            label: 'Follower Growth',
+                            data: [
+                                0.04, 77.68, 21.83, 0.36, 0.04
+                            ],
+                            backgroundColor: "rgb(155, 39, 175)",
+                            borderColor: "rgb(155, 39, 175)",
+                            borderWidth: 2,
+                            pointBackgroundColor: 'rgb(155, 39, 175)',
+                            hoverBackgroundColor: "rgb(155, 39, 175)",
+                            hoverBorderColor: "rgb(155, 39, 175)",
+                        }
+                    ]
+                },
+                optionABA: {
+                    plugins: {
+                        datalabels: {
+                            anchor: 'end',
+                            align: 'end',
+                            formatter: (value, context) => {
+                                return value + '%'
+                            }
+                        }
+                    },
+                    legend: {
+                        display: false
+                    },
+                    tooltips: {
+                        enabled: false,
+                    },
+                    scales: {
+                        xAxes: [{
+                            ticks: {
+                                min: 1,
+                                max: 100,
+                                stepSize: 10
+                            },
+                        }],
+                        yAxes: [
+                            {
+                                type: 'category',
+                                labels: [
+                                    '< 18',
+                                    '18-24',
+                                    '25-34',
+                                    '35-44',
+                                    '75+'
+                                ],
+                            }
+                        ]
                     }
-                ]
+                }
+            },
+            chartABGFe: {
+                dataABGFe: {
+                    datasets: [
+                        {
+                            label: 'Follower Growth',
+                            data: [70.39, 29.61],
+                            backgroundColor: ["rgb(233, 38, 98)", "rgba(233, 38, 98, 0.5)"],
+                        }
+                    ],
+                    labels: ['red', 'yellow']
+                },
+                optionABGFe: {
+                    legend: {
+                        display: false
+                    },
+                    tooltips: {
+                        enabled: false,
+                    },
+                    maintainAspectRatio: false
+                }
+            },
+            chartABGMa: {
+                dataABGMa: {
+                    datasets: [
+                        {
+                            label: 'Follower Growth',
+                            data: [29.61, 70.39],
+                            backgroundColor: ["rgb(155, 39, 175)", "rgba(155, 39, 175,0.5)"],
+                        }
+                    ],
+                },
+                optionABGMa: {
+                    legend: {
+                        display: false
+                    },
+                    tooltips: {
+                        enabled: false,
+                    },
+                    maintainAspectRatio: false
+                }
             },
         }
+    }
+    componentWillMount() {
+        Chart.pluginService.unregister(ChartDataLabels);
     }
     render() {
         return (
@@ -167,7 +322,6 @@ export default class DetailPage extends Component {
                             </div>
                         </div>
                     </div>
-
                     <div className="plc-fg">
                         <div className="plc-form wrap-plc-ov">
                             <div className="plc-ov1">
@@ -218,44 +372,9 @@ export default class DetailPage extends Component {
                                 </div>
                                 <div style={{ position: 'relative', width: '99%' }}>
                                     <Line
-                                        data={this.state.dataFG}
+                                        data={this.state.chartFG.dataFG}
                                         height={80}
-                                        options={{
-                                            legend: {
-                                                display: false
-                                            },
-                                            tooltips: {
-                                                callbacks: {
-                                                    label: function (tooltipItem) {
-                                                        return tooltipItem.yLabel;
-                                                    }
-                                                }
-                                            },
-                                            scales: {
-                                                
-                                                yAxes: [{
-                                                    ticks: {
-                                                        min: 3200000,
-                                                        max: 3215000,
-                                                        stepSize: 3000
-                                                    },
-                                                    // type: 'category',
-                                                    // lables: [
-                                                    //     '3215k',
-                                                    //     '3212k',
-                                                    //     '3210k',
-                                                    //     '3207k',
-                                                    //     '3205k',
-                                                    //     '3202k',
-                                                    //     '3200k'
-                                                    // ]
-                                                }],
-                                                xAxes: [{
-                                                    type: 'category',
-                                                    labels: ['08/05', '09/05', '10/05', '11/05', '12/05', '13/05', '04/06', '06/06', '07/06'],
-                                                }],
-                                            }
-                                        }}
+                                        options={this.state.chartFG.optionFG}
                                     />
                                 </div>
                             </div>
@@ -269,42 +388,9 @@ export default class DetailPage extends Component {
                                 </div>
                                 <div style={{ position: 'relative', width: '99%' }}>
                                     <HorizontalBar
-                                        data={this.state.dataABL}
-                                        // height={80}
-                                        options={{
-                                            legend: {
-                                                display: false
-                                            },
-                                            tooltips: {
-                                                callbacks: {
-                                                    label: function (tooltipItem) {
-                                                        var label = tooltipItem.xLabel
-                                                        return label + '%';
-                                                    }
-                                                }
-                                            },
-                                            scales: {
-                                                xAxes: [{
-                                                    ticks: {
-                                                        min: 1,
-                                                        max: 100,
-                                                        stepSize: 10
-                                                    },
-                                                }],
-                                                yAxes: [
-                                                    {
-                                                        type: 'category',
-                                                        labels: [
-                                                            'Hà Nội City',
-                                                            'Hồ Chí Minh City',
-                                                            'Thanh Hóa Province',
-                                                            'Đồng Nai Province',
-                                                            'Hải Phòng City'
-                                                        ],
-                                                    }
-                                                ]
-                                            }
-                                        }}
+                                        plugins={[ChartDataLabels]}
+                                        data={this.state.chartABL.dataABL}
+                                        options={this.state.chartABL.optionABL}
                                     />
                                 </div>
                             </div>
@@ -318,48 +404,62 @@ export default class DetailPage extends Component {
                                 </div>
                                 <div style={{ position: 'relative', width: '99%' }}>
                                     <HorizontalBar
-                                        data={this.state.dataABA}
-                                        // height={80}
-                                        options={{
-                                            legend: {
-                                                display: false
-                                            },
-                                            tooltips: {
-                                                callbacks: {
-                                                    label: function (tooltipItem) {
-                                                        var label = tooltipItem.xLabel
-                                                        return label + '%';
-                                                    }
-                                                }
-                                            },
-                                            scales: {
-                                                xAxes: [{
-                                                    ticks: {
-                                                        min: 0,
-                                                        max: 100,
-                                                        stepSize: 10
-                                                    },
-                                                }],
-                                                yAxes: [
-                                                    {
-                                                        type: 'category',
-                                                        labels: [
-                                                            '< 18',
-                                                            '18-24',
-                                                            '25-34',
-                                                            '35-44',
-                                                            '75+'
-                                                        ],
-                                                    }
-                                                ]
-                                            }
-                                        }}
+                                        plugins={[ChartDataLabels]}
+                                        data={this.state.chartABA.dataABA}
+                                        options={this.state.chartABA.optionABA}
                                     />
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div className="plc-abgc"><div className="plc-form">Allocate by Genders</div></div>
+                    <div className="plc-abgc">
+                        <div className="plc-form">
+                            <div>
+                                <div>
+                                    <span style={{ fontSize: '16px' }}>Allocate by Genders</span>
+                                </div>
+                                <div style={{ marginTop: '13px' }}>
+                                    <div className="chartFe">
+                                        <div style={{ width: '25%' }} className="text-center">
+                                            <span className="fas fa-venus fa-4x" style={{ color: 'rgb(233, 30, 98)' }}></span>
+                                        </div>
+                                        <div style={{ width: '45%' }}>
+                                            <div style={{ color: 'rgb(233, 30, 98)', fontSize: '18px', marginBottom: '10px' }}>Female</div>
+                                            <div style={{ fontSize: '32px', lineHeight: '1.5rem' }}>70.39%</div>
+                                        </div>
+                                        <div style={{ width: '30%' }}>
+                                            <div style={{ marginTop: '-10px' }}>
+                                                <Pie
+                                                    height={50}
+                                                    data={this.state.chartABGFe.dataABGFe}
+                                                    options={this.state.chartABGFe.optionABGFe}
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="chartMa">
+                                        <div style={{ width: '25%' }} className="text-center">
+                                            <span className="fas fa-mars fa-4x" style={{ color: "rgb(155, 39, 175)" }}></span>
+                                        </div>
+                                        <div style={{ width: '45%' }}>
+                                            <div style={{ color: 'rgb(155, 39, 175)', fontSize: '18px', marginBottom: '10px' }}>Male</div>
+                                            <div style={{ fontSize: '32px', lineHeight: '1.5rem' }}>29.61%</div>
+                                        </div>
+                                        <div style={{ width: '30%' }}>
+                                            <div style={{ marginTop: '-10px' }}>
+                                                <Pie
+                                                    height={50}
+                                                    data={this.state.chartABGMa.dataABGMa}
+                                                    options={this.state.chartABGMa.optionABGMa}
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
                     <div className="plc-abec"><div className="plc-form">Allocate by Education</div></div>
                     <div className="plc-abjc"><div className="plc-form">Allocate by Job Level</div></div>
                 </div>

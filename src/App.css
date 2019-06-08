@@ -404,7 +404,7 @@ cursor: pointer;
     box-shadow: 0 40px 50px -40px rgba(0,0,0,.2);
     border-radius: 3px;
     background-color: #ffffff;
-    padding: 17px;
+    /* padding: 17px; */
 }
 /* Total Follower */
 .plc-tf{
@@ -490,27 +490,63 @@ cursor: pointer;
     width: 100%;
     padding: 12px 0px 12px 0px;
 }
+.plc-fgc .plc-form{
+    padding: 17px;
+}
 
-/*  */
+/*Allocate by Location*/
 .plc-ablc{
     width: 50%;
     padding: 12px 12px 12px 0px;
 }
+.plc-ablc .plc-form{
+    padding: 17px;
+}
+/* Allocate by Age */
 .plc-abac{
     width: 50%;
     padding: 12px 0px 12px 12px;
 }
+.plc-abac .plc-form{
+    padding: 17px;
+}
+/* Allocate by Gender */
 .plc-abgc{
     width: 28%;
     padding: 12px 12px 12px 0px;
 }
+.plc-abgc .plc-form{
+    padding: 17px;
+}
+.chartFe{
+    padding: 16px 0px 15px;
+    border-top: 1px solid  #B4B4B4;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+}
+.chartMa{
+    padding: 16px 0px 15px;
+    border-top: 1px solid  #B4B4B4;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+}
+/* Allocate by Education */
 .plc-abec{
     width: 36%;
     padding: 12px 12px 12px 12px;
 }
+.plc-abec .plc-form{
+    padding: 17px;
+}
+/* Allocate by Job Level */
 .plc-abjc{
     width: 36%;
     padding: 12px 0px 12px 12px;
+}
+.plc-abjc .plc-form{
+    padding: 17px;
 }
 /* ---------------------------------------------------
     MEDIAQUERIES
