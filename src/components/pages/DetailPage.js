@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Line, HorizontalBar, Chart, Pie } from 'react-chartjs-2';
+import { Line, HorizontalBar, Chart, Pie, Doughnut } from 'react-chartjs-2';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 export default class DetailPage extends Component {
@@ -205,6 +205,81 @@ export default class DetailPage extends Component {
                     ],
                 },
                 optionABGMa: {
+                    legend: {
+                        display: false
+                    },
+                    tooltips: {
+                        enabled: false,
+                    },
+                    maintainAspectRatio: false
+                }
+            },
+            chartABE: {
+                dataABE: {
+                    datasets: [
+                        {
+                            label: 'Follower Growth',
+                            data: [
+                                42.03, 56.82, 1.15
+                            ],
+                            backgroundColor: [
+                                "rgb(255, 85, 0)",
+                                "rgb(255, 163, 29)",
+                                "rgb(0, 188, 213)"
+                            ],
+                        }
+                    ]
+                },
+                optionABE: {
+                    plugins: {
+                        datalabels: {
+                            anchor: 'center',
+                            color: 'white'
+                            // align: 'end',
+                            // formatter: (value, context) => {
+                            //     return value + '%'
+                            // }
+                        }
+                    },
+                    legend: {
+                        display: false
+                    },
+                    tooltips: {
+                        enabled: false,
+                    },
+                    maintainAspectRatio: false
+                }
+            },
+            chartABJ: {
+                dataABJ: {
+                    datasets: [
+                        {
+                            label: 'Follower Growth',
+                            data: [
+                                11.76, 25.89, 0.62, 29.26, 11.60, 20.86
+                            ],
+                            backgroundColor: [
+                                "rgb(255, 85, 0)",
+                                "rgb(255, 163, 29)",
+                                "rgb(0, 188, 213)",
+                                "rgb(13, 175, 80)",
+                                "rgb(155, 39, 175)",
+                                "rgb(0, 112, 185)"
+                            ],
+                        }
+                    ]
+                },
+                optionABJ: {
+                    plugins: {
+                        datalabels: {
+                            anchor: 'center',
+                            color: 'white'
+                            // align: 'end',
+                            // formatter: (value, context) => {
+                            //     return value + '%'
+                            // }
+                        }
+                    },
                     legend: {
                         display: false
                     },
@@ -460,8 +535,126 @@ export default class DetailPage extends Component {
 
                         </div>
                     </div>
-                    <div className="plc-abec"><div className="plc-form">Allocate by Education</div></div>
-                    <div className="plc-abjc"><div className="plc-form">Allocate by Job Level</div></div>
+                    <div className="plc-abec">
+                        <div className="plc-form">
+                            <div>
+                                <div>
+                                    <span style={{ fontSize: '16px' }}>Allocate by Education</span>
+                                </div>
+                                <div className="wrap-chart-pi">
+                                    <div className="chartPi">
+                                        <div style={{ position: 'relative', width: '99%' }}>
+                                            <Doughnut
+                                                plugins={[ChartDataLabels]}
+                                                height={250}
+                                                width={500}
+                                                data={this.state.chartABE.dataABE}
+                                                options={this.state.chartABE.optionABE}
+                                            />
+                                        </div>
+                                    </div>
+                                    <div className="listPi">
+                                        <div style={{ fontSize: '12px', margin: '12px 0px 3px' }}>
+                                            <span
+                                                className="fas fa-circle"
+                                                style={{
+                                                    fontSize: '10px',
+                                                    color: "rgb(255, 85, 0)"
+                                                }}></span> High School
+                                        </div>
+                                        <div style={{ fontSize: '12px', margin: '12px 0px 3px' }}>
+                                            <span
+                                                className="fas fa-circle"
+                                                style={{
+                                                    fontSize: '10px',
+                                                    color: "rgb(255, 163, 29)"
+                                                }}></span> College
+                                        </div>
+                                        <div style={{ fontSize: '12px', margin: '12px 0px 3px' }}>
+                                            <span
+                                                className="fas fa-circle"
+                                                style={{
+                                                    fontSize: '10px',
+                                                    color: "rgb(0, 188, 213)"
+                                                }}></span> Graduate Scholl
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="plc-abjc">
+                        <div className="plc-form">
+                            <div>
+                                <div>
+                                    <span style={{ fontSize: '16px' }}>Allocate by Job Level</span>
+                                </div>
+                                <div className="wrap-chart-pi">
+                                    <div className="chartPi">
+                                        <div style={{ position: 'relative', width: '99%' }}>
+                                            <Doughnut
+                                                plugins={[ChartDataLabels]}
+                                                height={250}
+                                                width={500}
+                                                data={this.state.chartABJ.dataABJ}
+                                                options={this.state.chartABJ.optionABJ}
+                                            />
+                                        </div>
+                                    </div>
+                                    <div className="listPi">
+                                        <div style={{ fontSize: '12px', margin: '12px 0px 3px' }}>
+                                            <span
+                                                className="fas fa-circle"
+                                                style={{
+                                                    fontSize: '10px',
+                                                    color: "rgb(255, 85, 0)"
+                                                }}></span> Other
+                                        </div>
+                                        <div style={{ fontSize: '12px', margin: '12px 0px 3px' }}>
+                                            <span
+                                                className="fas fa-circle"
+                                                style={{
+                                                    fontSize: '10px',
+                                                    color: "rgb(255, 163, 29)"
+                                                }}></span> Student
+                                        </div>
+                                        <div style={{ fontSize: '12px', margin: '12px 0px 3px' }}>
+                                            <span
+                                                className="fas fa-circle"
+                                                style={{
+                                                    fontSize: '10px',
+                                                    color: "rgb(0, 188, 213)"
+                                                }}></span> Intership
+                                        </div>
+                                        <div style={{ fontSize: '12px', margin: '12px 0px 3px' }}>
+                                            <span
+                                                className="fas fa-circle"
+                                                style={{
+                                                    fontSize: '10px',
+                                                    color: "rgb(13, 175, 80)"
+                                                }}></span> Executive
+                                        </div>
+                                        <div style={{ fontSize: '12px', margin: '12px 0px 3px' }}>
+                                            <span
+                                                className="fas fa-circle"
+                                                style={{
+                                                    fontSize: '10px',
+                                                    color: "rgb(155, 39, 175)"
+                                                }}></span> Senior/Manager
+                                        </div>
+                                        <div style={{ fontSize: '12px', margin: '12px 0px 3px' }}>
+                                            <span
+                                                className="fas fa-circle"
+                                                style={{
+                                                    fontSize: '10px',
+                                                    color: "rgb(0, 112, 185)"
+                                                }}></span> Director
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
                 </div>
             </div>
         )

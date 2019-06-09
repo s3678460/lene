@@ -540,6 +540,17 @@ cursor: pointer;
 .plc-abec .plc-form{
     padding: 17px;
 }
+.wrap-chart-pi{
+    display: flex;
+    flex-flow: row wrap;
+    margin-top: 13px;
+}
+.chartPi{
+    width: 65%;
+}
+.listPi{
+    width: 35%;
+}
 /* Allocate by Job Level */
 .plc-abjc{
     width: 36%;
